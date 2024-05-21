@@ -1,4 +1,3 @@
-
 class VCard
   attr_accessor :fn
 
