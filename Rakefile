@@ -1,4 +1,4 @@
-task default: [:clean, :build, :install, :test]
+task default: [:build, :install, :test, :clean]
 
 task :clean do
   spec = Gem::Specification::load("sibyl.gemspec")
