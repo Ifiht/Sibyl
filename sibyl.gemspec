@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "sibyl"
-  s.version = "0.0.3"
+  s.version = "0.0.4"
   s.required_ruby_version = ">= 3.0.0"
   s.summary = "Sibyl's Rolodex 🔮"
   s.description = "Contact organizer, à la vCard."
