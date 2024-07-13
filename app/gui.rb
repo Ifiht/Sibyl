@@ -1,9 +1,6 @@
-require 'tk'
+require 'wx'
 require 'sibyl'
 
-root = TkRoot.new { title "Hello, World!" }
-TkLabel.new(root) do
-   text 'Hello, World!'
-   pack { padx 15 ; pady 15; side 'left' }
+Wx::App.run do
+  Wx::Frame.new(nil, title: 'Hello world!').show
 end
-Tk.mainloop
