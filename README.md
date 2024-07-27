@@ -9,5 +9,8 @@ Map the wyrds :crystal_ball:
 ## Description
 A vCard <-> Ruby hash interoperator hash with useful functions, such as automatic consolidation and structured data for quick query.
 
+## Development
+Because of the `tk` requirement, you'll need a ruby dev environment. On Windows this means running `ridk install` with the default options (`1, 3`).
+
 ## References
 - [RFC 6350](https://www.rfc-editor.org/rfc/rfc6350)
