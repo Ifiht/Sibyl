@@ -29,21 +29,34 @@ filemenu.add :command, :label => 'Exit', :command => proc{exit_app(root)}
 filemenu.add :command, :label => 'Say Hello', :command => proc{puts "hello"}
 root.menu(menubar)
 #=====================================================#
+#------------//  ROOT LAYOUT  //----------------------#
+#=====================================================#
+mainframe = TkFrame.new(root)
+#=====================================================#
 #------------//  ROOT GRAPHICS  //--------------------#
 #=====================================================#
 icon = TkPhotoImage.new('file' => 'crystal.gif')
 root.iconphoto(icon)
 image = TkPhotoImage.new
 image.file = "sibyl.gif"
-label = TkLabel.new(root) 
+label = TkLabel.new(root)
 label.image = image
+label.grid('row'=>0, 'column'=>0)
 label.place('height' => image.height, 
-            'width' => image.width, 
-            'x' => 97, 'y' => 97)
+            'width' => image.width)
 TkLabel.new(root) do
    text 'MAIN WINDOW'
-   pack { padx 15 ; pady 15; side 'left' }
+   grid('row'=>0, 'column'=>1)
+   pack { padx 15 ; pady 15; side 'right' }
 end
+listbox = TkListbox.new(root) do
+   width 20
+   height 50
+   #setgrid 1
+   selectmode 'single'
+   pack('fill' => 'y')
+end
+listbox.insert 0, "one", "two", "three"
 #=====================================================#
 #------------//  RUN THE APP  //----------------------#
 #=====================================================#
