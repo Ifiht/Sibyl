@@ -1,9 +1,11 @@
 require 'tk'
 require 'sibyl'
 
-
+# Declare the Tkinter window root:
 root = TkRoot.new { title "Sibyl" }
-
+#=====================================================#
+#------------//  TRIGGER FUNCTIONS  //----------------#
+#=====================================================#
 def exit_app(main_window)
    main_window.destroy
 end
@@ -29,34 +31,50 @@ filemenu.add :command, :label => 'Exit', :command => proc{exit_app(root)}
 filemenu.add :command, :label => 'Say Hello', :command => proc{puts "hello"}
 root.menu(menubar)
 #=====================================================#
-#------------//  ROOT LAYOUT  //----------------------#
-#=====================================================#
-mainframe = TkFrame.new(root)
-#=====================================================#
 #------------//  ROOT GRAPHICS  //--------------------#
 #=====================================================#
 icon = TkPhotoImage.new('file' => 'crystal.gif')
 root.iconphoto(icon)
-image = TkPhotoImage.new
-image.file = "sibyl.gif"
-label = TkLabel.new(root)
-label.image = image
-label.grid('row'=>0, 'column'=>0)
-label.place('height' => image.height, 
-            'width' => image.width)
-TkLabel.new(root) do
-   text 'MAIN WINDOW'
+logo = TkPhotoImage.new
+logo.file = "sibyl.gif"
+#=====================================================#
+#------------//  ROOT LAYOUT  //----------------------#
+#=====================================================#
+sin_frame = TkFrame.new(root) { # Left Frame
+   grid('row'=>0, 'column'=>0)#, 'rowspan'=>3)
+   width 200
+}
+dex_frame = TkFrame.new(root) { # Right Frame
+   grid('row'=>0, 'column'=>1)#, 'rowspan'=>3)
+   width 300
+}
+TkLabel.new(sin_frame) {
+   text 'Contacts:'
+   grid('row'=>0, 'column'=>0, 'sticky'=>'se')
+}
+TkLabel.new(dex_frame) {
+   text 'COL2'
    grid('row'=>0, 'column'=>1)
-   pack { padx 15 ; pady 15; side 'right' }
-end
-listbox = TkListbox.new(root) do
-   width 20
-   height 50
-   #setgrid 1
+}
+TkLabel.new(dex_frame) {
+   text 'COL3'
+   grid('row'=>0, 'column'=>2)
+}
+TkLabel.new(dex_frame) {
+   text 'COL4'
+   grid('row'=>0, 'column'=>3)
+}
+
+listbox = TkListbox.new(sin_frame) {
+   height 19
    selectmode 'single'
-   pack('fill' => 'y')
-end
+   grid('row'=>1, 'column'=>0, 'rowspan'=>4)
+}
 listbox.insert 0, "one", "two", "three"
+TkLabel.new(sin_frame) {
+   image logo
+   grid('row'=>0, 'column'=>0, 'sticky'=>'sw')
+}
 #=====================================================#
 #------------//  RUN THE APP  //----------------------#
 #=====================================================#
