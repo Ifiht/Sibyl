@@ -36,6 +36,8 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Install libraries
       run: sudo apt install tk-dev
+    - name: gem install tk
+      run: bundle exec gem gem install tk -- --with-tcltkversion=8.6 --with-tcl-lib=/usr/lib/x86_64-linux-gnu --with-tk-lib=/usr/lib/x86_64-linux-gnu --with-tcl-include=/usr/include/tcl8.6 --with-tk-include=/usr/include/tcl8.6 --enable-pthread
     - name: Build gem
       run: bundle install
     - name: Run tests
