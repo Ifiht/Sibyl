@@ -4,4 +4,6 @@ gem "test-unit"
 gem "rake"
 gem "rufo"
 gem "ocra"
-gem "tk"
+install_if -> { RUBY_PLATFORM =~ /mingw/ } do
+  gem "tk"
+end
